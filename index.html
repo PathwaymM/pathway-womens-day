@@ -42,11 +42,10 @@ input:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(19
 .toggle-btn.active{background:var(--rose-pale);border-color:var(--rose);color:var(--rose-deep);font-weight:500}
 .dietary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
 @media(max-width:360px){.dietary-grid{grid-template-columns:1fr}}
-.diet-option{display:flex;align-items:center;gap:8px;padding:0.6rem 0.8rem;border:0.5px solid var(--border);border-radius:10px;background:var(--ivory);cursor:pointer;transition:all 0.18s;font-size:13.5px;color:var(--muted)}
-.diet-option:hover{border-color:var(--rose)}
+.diet-option{display:flex;align-items:center;gap:8px;padding:0.6rem 0.8rem;border:0.5px solid var(--border);border-radius:10px;background:var(--ivory);cursor:pointer;transition:all 0.18s;font-size:13.5px;color:var(--muted);user-select:none;-webkit-user-select:none}
+.diet-option:hover{border-color:var(--rose);color:var(--rose)}
 .diet-option.active{background:var(--rose-pale);border-color:var(--rose);color:var(--rose-deep)}
-.diet-option input[type=checkbox]{display:none}
-.diet-check{width:16px;height:16px;border-radius:4px;border:0.5px solid var(--border);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.diet-check{width:16px;height:16px;border-radius:4px;border:0.5px solid var(--border);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;pointer-events:none}
 .diet-option.active .diet-check{background:var(--rose);border-color:var(--rose)}
 .diet-check svg{display:none}
 .diet-option.active .diet-check svg{display:block}
@@ -77,7 +76,6 @@ textarea.other-diet{height:72px;resize:none;font-size:14px;margin-top:4px}
 </head>
 <body>
 <div class="page">
-
   <div class="hero">
     <span class="eyebrow">Pathway Ministries</span>
     <div class="title-wrap">
@@ -129,12 +127,12 @@ textarea.other-diet{height:72px;resize:none;font-size:14px;margin-top:4px}
       <div class="form-row">
         <label>Select all that apply</label>
         <div class="dietary-grid" id="dietary-grid">
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="No restriction"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>No restriction</label>
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Vegetarian"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegetarian</label>
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Vegan"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegan</label>
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Halaal"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Halaal</label>
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Gluten free"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Gluten free</label>
-          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Dairy free"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dairy free</label>
+          <div class="diet-option" data-value="No restriction" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>No restriction</div>
+          <div class="diet-option" data-value="Vegetarian" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegetarian</div>
+          <div class="diet-option" data-value="Vegan" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegan</div>
+          <div class="diet-option" data-value="Halaal" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Halaal</div>
+          <div class="diet-option" data-value="Gluten free" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Gluten free</div>
+          <div class="diet-option" data-value="Dairy free" onclick="toggleDiet(this)"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dairy free</div>
         </div>
         <p class="other-diet-label">Something else? Tell us here (allergies, intolerances, etc.)</p>
         <textarea class="other-diet" id="dietary-other" placeholder="e.g. nut allergy, kosher, low sodium…"></textarea>
@@ -184,11 +182,11 @@ textarea.other-diet{height:72px;resize:none;font-size:14px;margin-top:4px}
 const SUBMIT_URL='https://script.google.com/macros/s/AKfycbzfLmUS7gbEWF0Zl8RU4qiKhzRgTxk5CVEAZFu2_MSmJ7p7ZmpHg_k59EIHuauBFkvtdQ/exec';
 const state={age:null,attending:null,bringing:null,guestCount:1};
 function pick(f,v,el){state[f]=v;el.closest('.toggle-group').querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');const e=document.getElementById('err-'+f);if(e)e.style.display='none';}
-function toggleDiet(el){el.classList.toggle('active');el.querySelector('input[type=checkbox]').checked=el.classList.contains('active');}
+function toggleDiet(el){el.classList.toggle('active');}
 function showGuests(show){const s=document.getElementById('guest-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.bringing=null;document.getElementById('count-section').style.display='none';document.querySelectorAll('#field-bringing .toggle-btn').forEach(b=>b.classList.remove('active'));}}
 function showCount(show){const s=document.getElementById('count-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.guestCount=1;document.getElementById('count-display').textContent='1';}}
 function adjustCount(d){state.guestCount=Math.max(1,Math.min(20,state.guestCount+d));document.getElementById('count-display').textContent=state.guestCount;}
-function getDietary(){const c=Array.from(document.querySelectorAll('#dietary-grid .diet-option.active')).map(el=>el.querySelector('input').value);const o=document.getElementById('dietary-other').value.trim();const p=[...c];if(o)p.push('Other: '+o);return p.length?p.join(', '):'None specified';}
+function getDietary(){const c=Array.from(document.querySelectorAll('#dietary-grid .diet-option.active')).map(el=>el.dataset.value);const o=document.getElementById('dietary-other').value.trim();const p=[...c];if(o)p.push('Other: '+o);return p.length?p.join(', '):'None specified';}
 function validate(){let ok=true;const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const phone=document.getElementById('phone').value.trim();['field-name','field-email','field-phone'].forEach(id=>document.getElementById(id).classList.remove('field-error'));['err-age','err-attending','err-bringing'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});if(!name){document.getElementById('field-name').classList.add('field-error');ok=false;}if(!email||!/\S+@\S+\.\S+/.test(email)){document.getElementById('field-email').classList.add('field-error');ok=false;}if(!phone){document.getElementById('field-phone').classList.add('field-error');ok=false;}if(!state.age){document.getElementById('err-age').style.display='block';ok=false;}if(!state.attending){document.getElementById('err-attending').style.display='block';ok=false;}if(state.attending==='yes'&&!state.bringing){document.getElementById('err-bringing').style.display='block';ok=false;}return ok;}
 async function handleSubmit(){if(!validate())return;const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';const payload={timestamp:new Date().toLocaleString('en-ZA',{timeZone:'Africa/Johannesburg'}),name:document.getElementById('name').value.trim(),email:document.getElementById('email').value.trim(),phone:document.getElementById('phone').value.trim(),ageRange:state.age==='young-adult'?'Young Adult':'Adult',dietary:getDietary(),attending:state.attending==='yes'?'Yes':'No',bringingGuests:state.attending==='yes'?(state.bringing==='yes'?'Yes':'No'):'N/A',guestCount:(state.attending==='yes'&&state.bringing==='yes')?state.guestCount:0};try{await fetch(SUBMIT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});showSuccess();}catch{showSuccess();}}
 function showSuccess(){document.getElementById('form-area').style.display='none';const s=document.getElementById('success-area');s.style.display='block';s.style.animation='fadeUp 0.4s ease both';}
