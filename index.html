@@ -182,7 +182,7 @@ textarea.other-diet{height:72px;resize:none;font-size:14px;margin-top:4px}
 const SUBMIT_URL='https://script.google.com/macros/s/AKfycbzfLmUS7gbEWF0Zl8RU4qiKhzRgTxk5CVEAZFu2_MSmJ7p7ZmpHg_k59EIHuauBFkvtdQ/exec';
 const state={age:null,attending:null,bringing:null,guestCount:1};
 function pick(f,v,el){state[f]=v;el.closest('.toggle-group').querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');const e=document.getElementById('err-'+f);if(e)e.style.display='none';}
-function toggleDiet(el){el.classList.toggle('active');}
+function toggleDiet(el){if(el.classList.contains('active')){el.classList.remove('active');}else{el.classList.add('active');}}
 function showGuests(show){const s=document.getElementById('guest-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.bringing=null;document.getElementById('count-section').style.display='none';document.querySelectorAll('#field-bringing .toggle-btn').forEach(b=>b.classList.remove('active'));}}
 function showCount(show){const s=document.getElementById('count-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.guestCount=1;document.getElementById('count-display').textContent='1';}}
 function adjustCount(d){state.guestCount=Math.max(1,Math.min(20,state.guestCount+d));document.getElementById('count-display').textContent=state.guestCount;}
