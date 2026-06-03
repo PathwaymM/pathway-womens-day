@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women's Day — Pathway Ministries</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ivory:#FAF7F2;--rose:#C4837A;--rose-deep:#9D5A53;
+  --rose-pale:#EDD8D5;--sage:#8A9E8C;--charcoal:#2C2A28;--muted:#7A776F;
+  --border:rgba(44,42,40,0.12);
+}
+html,body{min-height:100%;width:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--charcoal);display:flex;justify-content:center;padding:0 0 3rem}
+.page{width:100%;max-width:580px;padding:0 1.25rem}
+.hero{padding:2.5rem 0 1.5rem;text-align:center}
+.eyebrow{display:block;font-size:13px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:1.25rem;animation:fadeUp 0.5s ease both}
+.title-wrap{margin-bottom:1rem;animation:fadeUp 0.5s 0.1s ease both;white-space:nowrap}
+.title-womens{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,8vw,3.5rem);font-weight:300;color:var(--charcoal);letter-spacing:0.01em}
+.title-day{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,8vw,3.5rem);font-weight:300;font-style:italic;color:var(--rose);letter-spacing:0.01em}
+.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.8vw,1.1rem);color:var(--muted);line-height:1.7;animation:fadeUp 0.5s 0.2s ease both}
+.floral-divider{display:flex;align-items:center;gap:0;margin:1.5rem auto;max-width:300px;animation:fadeUp 0.5s 0.25s ease both}
+.floral-line{flex:1;height:0.5px;background:var(--rose-pale)}
+.floral-center{display:flex;align-items:center;gap:4px;padding:0 12px}
+.floral-petal{width:5px;height:5px;border-radius:50%;background:var(--rose-pale)}
+.floral-petal.main{width:7px;height:7px;background:var(--rose)}
+.card{background:#fff;border:0.5px solid var(--border);border-radius:20px;padding:clamp(1.25rem,5vw,2rem);box-shadow:0 4px 48px rgba(44,42,40,0.07);animation:fadeUp 0.5s 0.3s ease both}
+.section-label{font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin:1.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:0.5px solid var(--rose-pale)}
+.section-label:first-child{margin-top:0}
+.form-row{margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+@media(max-width:420px){.form-grid{grid-template-columns:1fr}}
+label{display:block;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
+input,textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;color:var(--charcoal);background:var(--ivory);border:0.5px solid var(--border);border-radius:10px;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none;appearance:none}
+input::placeholder,textarea::placeholder{color:#C5C0B8;font-weight:300}
+input:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(196,131,122,0.1);background:#fff}
+.toggle-group{display:flex;gap:8px;flex-wrap:wrap}
+.toggle-btn{flex:1;min-width:90px;padding:0.72rem 0.5rem;border:0.5px solid var(--border);border-radius:10px;background:var(--ivory);font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:400;color:var(--muted);cursor:pointer;transition:all 0.18s;text-align:center;-webkit-appearance:none;white-space:nowrap}
+.toggle-btn:hover{border-color:var(--rose);color:var(--rose)}
+.toggle-btn.active{background:var(--rose-pale);border-color:var(--rose);color:var(--rose-deep);font-weight:500}
+.dietary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+@media(max-width:360px){.dietary-grid{grid-template-columns:1fr}}
+.diet-option{display:flex;align-items:center;gap:8px;padding:0.6rem 0.8rem;border:0.5px solid var(--border);border-radius:10px;background:var(--ivory);cursor:pointer;transition:all 0.18s;font-size:13.5px;color:var(--muted)}
+.diet-option:hover{border-color:var(--rose)}
+.diet-option.active{background:var(--rose-pale);border-color:var(--rose);color:var(--rose-deep)}
+.diet-option input[type=checkbox]{display:none}
+.diet-check{width:16px;height:16px;border-radius:4px;border:0.5px solid var(--border);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.diet-option.active .diet-check{background:var(--rose);border-color:var(--rose)}
+.diet-check svg{display:none}
+.diet-option.active .diet-check svg{display:block}
+.other-diet-label{font-size:12px;color:var(--muted);margin-bottom:6px;font-style:italic}
+textarea.other-diet{height:72px;resize:none;font-size:14px;margin-top:4px}
+.guest-counter{display:inline-flex;align-items:center;border:0.5px solid var(--border);border-radius:10px;overflow:hidden;margin-top:0.75rem}
+.counter-btn{width:44px;height:44px;background:var(--ivory);border:none;font-size:20px;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;font-family:'DM Sans',sans-serif;flex-shrink:0}
+.counter-btn:hover{background:var(--rose-pale);color:var(--rose-deep)}
+.counter-val{width:52px;height:44px;text-align:center;background:#fff;border-left:0.5px solid var(--border);border-right:0.5px solid var(--border);font-size:16px;font-weight:500;color:var(--charcoal);display:flex;align-items:center;justify-content:center}
+.guest-note{font-size:12px;color:var(--muted);margin-top:0.4rem;font-style:italic}
+.btn{width:100%;margin-top:1.75rem;background:var(--rose);color:#fff;border:none;border-radius:12px;padding:1rem;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.06em;cursor:pointer;transition:background 0.2s,transform 0.15s}
+.btn:hover{background:var(--rose-deep)}
+.btn:active{transform:scale(0.985)}
+.btn:disabled{opacity:0.6;cursor:not-allowed}
+.error-msg{display:none;font-size:12px;color:var(--rose-deep);margin-top:0.35rem}
+.field-error input{border-color:var(--rose-deep) !important}
+.field-error .error-msg{display:block}
+.success{display:none;text-align:center;padding:2rem 0 1rem}
+.success-icon{width:56px;height:56px;border-radius:50%;background:var(--rose-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.success-icon svg{color:var(--rose)}
+.success h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.75rem;color:var(--charcoal);margin-bottom:0.5rem}
+.success p{font-size:14px;color:var(--muted);line-height:1.7}
+.footer-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:1.25rem;line-height:1.7}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.slide-down{animation:slideDown 0.25s ease both}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <span class="eyebrow">Pathway Ministries</span>
+    <div class="title-wrap">
+      <span class="title-womens">Women's </span><span class="title-day">Day</span>
+    </div>
+    <p class="tagline">You are seen. You are known. You are deeply loved.</p>
+  </div>
+
+  <div class="floral-divider">
+    <div class="floral-line"></div>
+    <div class="floral-center">
+      <div class="floral-petal"></div>
+      <div class="floral-petal main"></div>
+      <div class="floral-petal"></div>
+    </div>
+    <div class="floral-line"></div>
+  </div>
+
+  <div class="card">
+    <div id="form-area">
+      <div class="section-label">Your details</div>
+      <div class="form-row" id="field-name">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your name" autocomplete="name">
+        <span class="error-msg">Please enter your name.</span>
+      </div>
+      <div class="form-grid">
+        <div class="form-row" id="field-email">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+          <span class="error-msg">Please enter a valid email.</span>
+        </div>
+        <div class="form-row" id="field-phone">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+27 XX XXX XXXX" autocomplete="tel">
+          <span class="error-msg">Please enter your phone.</span>
+        </div>
+      </div>
+      <div class="form-row" id="field-age">
+        <label>Age Range</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn" onclick="pick('age','young-adult',this)">Young Adult</button>
+          <button type="button" class="toggle-btn" onclick="pick('age','adult',this)">Adult</button>
+        </div>
+        <span class="error-msg" id="err-age">Please select your age range.</span>
+      </div>
+
+      <div class="section-label">Dietary preferences</div>
+      <div class="form-row">
+        <label>Select all that apply</label>
+        <div class="dietary-grid" id="dietary-grid">
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="No restriction"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>No restriction</label>
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Vegetarian"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegetarian</label>
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Vegan"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vegan</label>
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Halaal"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Halaal</label>
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Gluten free"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Gluten free</label>
+          <label class="diet-option" onclick="toggleDiet(this)"><input type="checkbox" value="Dairy free"><div class="diet-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dairy free</label>
+        </div>
+        <p class="other-diet-label">Something else? Tell us here (allergies, intolerances, etc.)</p>
+        <textarea class="other-diet" id="dietary-other" placeholder="e.g. nut allergy, kosher, low sodium…"></textarea>
+      </div>
+
+      <div class="section-label">Attendance</div>
+      <div class="form-row" id="field-attending">
+        <label>Are you attending?</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn" onclick="pick('attending','yes',this); showGuests(true)">Yes, I'll be there</button>
+          <button type="button" class="toggle-btn" onclick="pick('attending','no',this); showGuests(false)">Can't make it</button>
+        </div>
+        <span class="error-msg" id="err-attending">Please let us know if you're attending.</span>
+      </div>
+      <div id="guest-section" style="display:none">
+        <div class="form-row" id="field-bringing">
+          <label>Bringing someone with you?</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn" onclick="pick('bringing','yes',this); showCount(true)">Yes</button>
+            <button type="button" class="toggle-btn" onclick="pick('bringing','no',this); showCount(false)">No, just me</button>
+          </div>
+          <span class="error-msg" id="err-bringing">Please answer this question.</span>
+        </div>
+        <div id="count-section" style="display:none" class="form-row">
+          <label>How many guests?</label>
+          <div class="guest-counter">
+            <button type="button" class="counter-btn" onclick="adjustCount(-1)">−</button>
+            <div class="counter-val" id="count-display">1</div>
+            <button type="button" class="counter-btn" onclick="adjustCount(1)">+</button>
+          </div>
+          <p class="guest-note">Not including yourself</p>
+        </div>
+      </div>
+      <button class="btn" id="submit-btn" onclick="handleSubmit()">Reserve My Spot →</button>
+    </div>
+
+    <div class="success" id="success-area">
+      <div class="success-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+      <h3>You're registered!</h3>
+      <p>We've received your details and<br>can't wait to celebrate with you.</p>
+    </div>
+  </div>
+  <p class="footer-note">Your information is kept private and will only be used to confirm your attendance.</p>
+</div>
+
+<script>
+const SUBMIT_URL='https://script.google.com/macros/s/AKfycbzfLmUS7gbEWF0Zl8RU4qiKhzRgTxk5CVEAZFu2_MSmJ7p7ZmpHg_k59EIHuauBFkvtdQ/exec';
+const state={age:null,attending:null,bringing:null,guestCount:1};
+function pick(f,v,el){state[f]=v;el.closest('.toggle-group').querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');const e=document.getElementById('err-'+f);if(e)e.style.display='none';}
+function toggleDiet(el){el.classList.toggle('active');el.querySelector('input[type=checkbox]').checked=el.classList.contains('active');}
+function showGuests(show){const s=document.getElementById('guest-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.bringing=null;document.getElementById('count-section').style.display='none';document.querySelectorAll('#field-bringing .toggle-btn').forEach(b=>b.classList.remove('active'));}}
+function showCount(show){const s=document.getElementById('count-section');if(show){s.style.display='block';s.classList.add('slide-down');}else{s.style.display='none';state.guestCount=1;document.getElementById('count-display').textContent='1';}}
+function adjustCount(d){state.guestCount=Math.max(1,Math.min(20,state.guestCount+d));document.getElementById('count-display').textContent=state.guestCount;}
+function getDietary(){const c=Array.from(document.querySelectorAll('#dietary-grid .diet-option.active')).map(el=>el.querySelector('input').value);const o=document.getElementById('dietary-other').value.trim();const p=[...c];if(o)p.push('Other: '+o);return p.length?p.join(', '):'None specified';}
+function validate(){let ok=true;const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const phone=document.getElementById('phone').value.trim();['field-name','field-email','field-phone'].forEach(id=>document.getElementById(id).classList.remove('field-error'));['err-age','err-attending','err-bringing'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});if(!name){document.getElementById('field-name').classList.add('field-error');ok=false;}if(!email||!/\S+@\S+\.\S+/.test(email)){document.getElementById('field-email').classList.add('field-error');ok=false;}if(!phone){document.getElementById('field-phone').classList.add('field-error');ok=false;}if(!state.age){document.getElementById('err-age').style.display='block';ok=false;}if(!state.attending){document.getElementById('err-attending').style.display='block';ok=false;}if(state.attending==='yes'&&!state.bringing){document.getElementById('err-bringing').style.display='block';ok=false;}return ok;}
+async function handleSubmit(){if(!validate())return;const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';const payload={timestamp:new Date().toLocaleString('en-ZA',{timeZone:'Africa/Johannesburg'}),name:document.getElementById('name').value.trim(),email:document.getElementById('email').value.trim(),phone:document.getElementById('phone').value.trim(),ageRange:state.age==='young-adult'?'Young Adult':'Adult',dietary:getDietary(),attending:state.attending==='yes'?'Yes':'No',bringingGuests:state.attending==='yes'?(state.bringing==='yes'?'Yes':'No'):'N/A',guestCount:(state.attending==='yes'&&state.bringing==='yes')?state.guestCount:0};try{await fetch(SUBMIT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});showSuccess();}catch{showSuccess();}}
+function showSuccess(){document.getElementById('form-area').style.display='none';const s=document.getElementById('success-area');s.style.display='block';s.style.animation='fadeUp 0.4s ease both';}
+</script>
+</body>
+</html>
